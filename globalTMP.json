@@ -1,0 +1,13 @@
+{
+    "token": "DISCORD_BOT_TOKEN: cAsE sEnSiTivE",
+    "assets": {
+        "pfp": "IMAGE_URL"
+    },
+    "info": {
+        "prefix": "tog!",
+        "game": {
+            "name": "GAME OR APP NAME: Mixed Case",
+            "type": "TYPE OF ACTIVITY: CAN BE PLAYING, STREAMING, LISTENING, OR WATCHING: MUST BE UPPERCASE"
+        }
+    }
+}

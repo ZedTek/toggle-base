@@ -1,0 +1,14 @@
+{
+    "name": "toggle",
+    "version": "1.0.0",
+    "description": "ZedTek's discord bot project",
+    "main": "index.js",
+    "scripts": {
+        "start": "npm install; echo Starting Toggle...; node index.js"
+    },
+    "dependencies": {
+        "discord.js": "^12.5.1",
+        "express": "^4.17.1",
+        "npm": "^7.5.4"
+    }
+}
