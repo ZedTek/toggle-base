@@ -12,9 +12,11 @@ console.log('Toggle v1 - STARTED');
 
 // Load dependencies and get global vars
 
+const http = require('http');
 const fs = require("fs")
+const db = require("quick.db")
 const Discord = require('discord.js');
-const global = require('./global.json');
+const global = require('./globalTMP.json');
 const client = new Discord.Client();
 const prefix = global.info.prefix;
 
@@ -42,10 +44,11 @@ client.on('message', message => {
             client.commands.set(command.name, command);
         }
         for (const ext of extensionCommands){
+            const extensionName = ext;
             const command = fs.readdirSync(`./commands/ext/${ext}`).filter(file => file.endsWith('.js'));
             for (const file of command){
                 const extCommand = require(`./commands/ext/${ext}/${file}`);
-                client.commands.set(extCommand.name, extCommand)
+                client.commands.set(`${extensionName}-${extCommand.name}`, extCommand);
             }
         }
         printCommand(prefix, message);
@@ -70,9 +73,34 @@ function printCommand(prefix, message){
 }
 
 function loadExt(){
-
+    const moduleFiles = fs.readdirSync(`./modules`).filter(file => file.endsWith('.json'));
+    for (const module of moduleFiles){
+        if (db.get('parsedModules') === module){
+            return;
+        }
+        else{
+            for (const command of module.commands){
+                download(command, `./commands/ext/${module.name}/${command}`, error);
+            }
+            db.add('parsedModules', module)
+        }
+        
+        
+    }
 }
+function download(url, dest, cb){
+    const file = fs.createWriteStream(dest);
+    const request = http.get(url, function(response) {
+        response.pipe(file);
+        file.on('finish', function() {
+            file.close(cb);  
+        });
+    }).on('error', function(err) {
+        fs.unlink(dest); 
+        if (cb) cb(err.message);
+    });
+};
 
 // Discord API login
 
-client.login('ODE3NDkwNjYwOTIzMjc3MzUy.YEKRgQ.MnxkI_2KFyKCK86F1Thk-hYf8GU');
+client.login(global.token);
