@@ -1,2 +1,4 @@
 node_modules/
-./globalTMP.json
+modules/
+commands/ext/
+*.jsonignored
