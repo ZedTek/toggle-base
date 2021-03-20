@@ -4,7 +4,7 @@
     "description": "ZedTek's discord bot project",
     "main": "index.js",
     "scripts": {
-        "start": "npm install; echo Starting Toggle...; node index.js"
+        "start": "clear; npm install; echo Starting Toggle...; node index.js"
     },
     "dependencies": {
         "discord.js": "^12.5.1",

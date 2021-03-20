@@ -6,54 +6,78 @@ Original code by Anden Wieseler and ZedTek. For Licensing info, see https://gith
 
 */
 
-// Tell console that we're ready
-
-console.log('Toggle v1 - STARTED');
-
 // Load dependencies and get global vars
 
-const http = require('http');
-const fs = require("fs")
-const db = require("quick.db")
+const fs = require("fs");
 const Discord = require('discord.js');
 const global = require('./globalTMP.json');
 const client = new Discord.Client();
 const prefix = global.info.prefix;
+const modLoader = require('./utils/modloader.js');
+
 
 // Kickoff
 
 client.on("ready", () =>{
+    console.log('\n--------\nTOGGLE MODULE LOADER\n--------\n');
+
     client.user.setPresence({
         game: {
             name: global.info.game.name,
             type: global.info.game.type
         }
     });
-    loadExt();
+
+    modLoader.loadExt();
+
+    console.log('\n--------\nFinished loading modules. TOGGLE IS READY FOR USER INPUT.\n--------\n')
 });
 
 // Message listeners
 
 client.on('message', message => {
+
+    // check to make sure the message starts with the bot prefix
+
     if (message.content.toLowerCase().startsWith(`${prefix} `)){
+
+        // make a new collection for commands, and import commands from the /commands direcory
+
         client.commands = new Discord.Collection();
         const extensionCommands = fs.readdirSync('./commands/ext');
         const commandFiles = fs.readdirSync(`./commands/base/`).filter(file => file.endsWith('.js'));
+
+        // scan imported commands, and add them to the collection
+
         for (const file of commandFiles) {
+
+            // scan base commands, and add them to the collection, one by one.
+
             const command = require(`./commands/base/${file}`);
             client.commands.set(command.name, command);
         }
         for (const ext of extensionCommands){
-            const extensionName = ext;
+
+            // look for indidvidual modules, and attempt to import their info files.
+
+            const infoFile = require(`./commands/ext/${ext}/config.json`);
+
+            // attempt to find extension commands, and add them to the collection.
+
             const command = fs.readdirSync(`./commands/ext/${ext}`).filter(file => file.endsWith('.js'));
             for (const file of command){
+
+                // import the command for naming and collecting.
+
                 const extCommand = require(`./commands/ext/${ext}/${file}`);
-                client.commands.set(`${extensionName}-${extCommand.name}`, extCommand);
+
+                // set the command name as (module name)-(command).
+
+                client.commands.set(`${infoFile.commandPrefix}-${extCommand.name}`, extCommand);
             }
         }
         printCommand(prefix, message);
     }
-    
 });
 
 // Global functions
@@ -72,34 +96,6 @@ function printCommand(prefix, message){
     }
 }
 
-function loadExt(){
-    const moduleFiles = fs.readdirSync(`./modules`).filter(file => file.endsWith('.json'));
-    for (const module of moduleFiles){
-        if (db.get('parsedModules') === module){
-            return;
-        }
-        else{
-            for (const command of module.commands){
-                download(command, `./commands/ext/${module.name}/${command}`, error);
-            }
-            db.add('parsedModules', module)
-        }
-        
-        
-    }
-}
-function download(url, dest, cb){
-    const file = fs.createWriteStream(dest);
-    const request = http.get(url, function(response) {
-        response.pipe(file);
-        file.on('finish', function() {
-            file.close(cb);  
-        });
-    }).on('error', function(err) {
-        fs.unlink(dest); 
-        if (cb) cb(err.message);
-    });
-};
 
 // Discord API login
 

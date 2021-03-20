@@ -1,4 +1,4 @@
 node_modules/
-/globalTMP.*
-/json.*
-modules/*
+modules/
+commands/ext/
+*.jsonignored
