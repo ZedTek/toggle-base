@@ -7,7 +7,7 @@
         "prefix": "tog!",
         "game": {
             "name": "GAME OR APP NAME: Mixed Case",
-            "type": "TYPE OF ACTIVITY: CAN BE PLAYING, STREAMING, LISTENING, OR WATCHING: MUST BE UPPERCASE"
+            "type": "TYPE OF ACTIVITY: CAN BE PLAYING, STREAMING, LISTENING, OR WATCHING: MUST BE UPPERCASE."
         }
     }
 }

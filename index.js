@@ -10,7 +10,7 @@ Original code by Anden Wieseler and ZedTek. For Licensing info, see https://gith
 
 const fs = require("fs");
 const Discord = require('discord.js');
-const global = require('./globalTMP.json');
+const global = require('./global.json');
 const client = new Discord.Client();
 const prefix = global.info.prefix;
 const modLoader = require('./utils/modloader.js');
@@ -19,18 +19,21 @@ const modLoader = require('./utils/modloader.js');
 // Kickoff
 
 client.on("ready", () =>{
-    console.log('\n--------\nTOGGLE MODULE LOADER\n--------\n');
 
     client.user.setPresence({
-        game: {
+        activity: {
             name: global.info.game.name,
             type: global.info.game.type
         }
     });
 
+    console.log('Set presence data to: ' + global.info.game.type + ' ' + global.info.game.name)
+
+    console.log('\n--------\nTOGGLE MODULE LOADER\n--------\n');
+
     modLoader.loadExt();
 
-    console.log('\n--------\nFinished loading modules. TOGGLE IS READY FOR USER INPUT.\n--------\n')
+    console.log('\n--------\nTOGGLE IS READY FOR USER INPUT.\n--------\n')
 });
 
 // Message listeners
