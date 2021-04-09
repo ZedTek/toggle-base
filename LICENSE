@@ -7,33 +7,124 @@ License was applied by Anden Wieseler, with authorization from the original auth
 
 This is the original distriuton of the work.
 
------
-This license applies to any work, written, typed, software in plain or binary form, that this license may be attached to, at the discretion of the author of said work.
------
+---
+This license is made freely availible by ZedTek for use by the general public.
+You can feel free to add verbatim copies of this license agreement to any of
+your projects, provided that the license terms are unmodified. The header may
+be modified to fit the appropriate part(y/ies).
+
+This license applies to any work, written, typed, software in plain or binary
+form, that this license may be attached to, at the discretion of the author of
+said work.
+---
 
 License Terms:
 
-i. The work attached to this license is made availible freely by the author of said work.
-  ia. This work is released with no warranty, express or implied, under any and all circumstances.
-  ib. Derivatives of the work are allowed, however, proper attribution to the original author is required unless explicitly stated.
-    ib-i. Attribution in this case should include a link to the original work (if applicable), the name of the original author, whether or not the redistribution has been modified, and if such modifications were made with the approval of the original author.
-  ic. Modifying the work is allowed and encouraged, however modified derivatives should not suggest an endorsement from the original author, and does not imply that support for the derivative work(s) will be given by the origin author.
+i. The work attached to this license is made availible freely by the author of
+   said work.
 
-ii. The work attached to this license is the intellectual property of the author, or is an authorized redistribution of the original work.
-  iia. In the case that this work is the intellectual property of a person or company, this license should only be applied by an individual party who can certify that they have the right to do so.
-    iia-i. In the event that this license is applied without express or implied consent from the author, the terms of this license are VOID, and no permission is given.
-  iib. In the case that this work is the intellectual property of another individual, and has been redistributed with the permission of the original author, full credit MUST be given to the original author, unless explicitly stated.
-    iib-i. In the event that this work is redistributed under the false implication that the redistribution was authorized by the original author, the terms of this license are VOID, and no permission is given.
+  ia. This work is released with no warranty, express or implied, under any and
+      all circumstances.
 
-iii. Any work can be attached to this license, without required consent from ZedTek, under the following conditions:
-  iiia. The work does not imply a connection, endorsement, or similar to or from ZedTek, its affiliates, or its contibutors.
+  ib. Derivatives of the work are allowed, however, proper attribution to the 
+      original author is required unless explicitly stated.
+
+    ib-i. Attribution in this case should include a link to the original work 
+          (if applicable), the name of the original author, whether or not the
+          redistribution has been modified, and if such modifications were made 
+          with the approval of the original author.
+
+  ic. Modifying the work is allowed and encouraged, however modified derivatives 
+      should not suggest an endorsement from the original author, and does not 
+      imply that support for the derivative work(s) will be given by the origin 
+      author.
+
+
+ii. The work attached to this license is the intellectual property of the author, 
+    or is an authorized redistribution of the original work.
+
+  iia. In the case that this work is the intellectual property of a person or
+       company, this license should only be applied by an individual party who can
+       certify that they are either the author themselves, or are authorized to do
+       so on behalf of the author.
+
+    iia-i. In the event that this license is applied without express or implied 
+           consent from the author, the terms of this license are VOID, and no 
+           permission is given.
+
+  iib. In the case that this work is the intellectual property of another individual, 
+       and has been redistributed with the permission of the original author, full 
+       credit MUST be given to the original author, unless explicitly stated.
+
+    iib-i. In the event that this work is redistributed under the false implication that 
+           the redistribution was authorized by the original author, the terms of this 
+           license are VOID, and no permission is given.
+
+
+iii. Any work can be attached to this license, without required consent from ZedTek, 
+     under the following conditions:
+
+  iiia. The work does not imply a connection, endorsement, or similar to or from ZedTek, 
+        its affiliates, or its contibutors.
+
     iiia-i. Work that has been authorized by ZedTek is not applicable to section iiia.
-  iiib. The work is original, or has significant modification to the point where a derivative work is warranted.
-    iiib-i. If the work is a continuation of an abandoned work, that would classify as a derivative work.
-    iiib-ii. If the work is a derivative, applying this license must not violate the terms of the license of the original work.
-  
-iv. Any work attached to this license that is original, must be redistributed with the same license text
-  iva. Any derivative works with significant modifications must have the following line added to the license header: 'Work modified by: (name of second author)'.
-  ivb. Any derivative works that have little to no modification, must have the following line added to the license header: 'Non-modified derivative work by: (name of derivative owner)'.
 
+  iiib. The work is original, or has significant modification to the point where a 
+        derivative work is warranted.
+
+    iiib-i. If the work is a continuation of an abandoned work, that would classify as 
+            a derivative work.
+
+    iiib-ii. If the work is a derivative, applying this license must not violate the 
+             terms of the license of the original work, if applicable.
+
+  
+iv. Any work attached to this license that is original, must be redistributed with the 
+    same license text
+
+  iva. Any derivative works with significant modifications must have the following line 
+       added to the license header: 'Work modified by: (name of second author)'.
+
+    iva-i. Any derivative works that derive from a work that is a derivative of another 
+           work, the addition to the license header should not be replaced. Instead, 
+           add another line below with the following text: 'Work modified by: (third, 
+           fourth, fifth author, etc)`.
+
+      iva-ia. This should be done for every derivative level. See example 1 below.
+
+  ivb. Any derivative works that have little to no modification, must have the following 
+       line added to the license header: 'Non-modified derivative work by: (name of 
+       derivative owner)'.
+
+    ivb-i. Follow the same guidelines as section iva-ia.
+
+
+END OF LICENSE TERMS
+
+---
+Example 1
+---
+
+If the work is a derivative of the original work, the header might look like this:
+
+|  Attached work is attributed to: (author name)
+|
+|  License was applied by (name), with authorization from the original author.
+|
+|  Work modified by: (second author)
+
+However if the work is a derivative of a derivative, then the header might look like this:
+
+|  Attached work is attributed to: (author name)
+|
+|  License was applied by (name), with authorization from the original author.
+|
+|  Work modified by: (second author)
+|  Work modified by: (third author)
+
+Keep adding lines, as new contributors pick up the work. The names should be in chronological 
+order, so be sure to add new contributors to the bottom.
+
+If multiple people are working on a specific derivative at one time, their names should be on 
+the same line. DO NOT make new header lines for individuals within a group.
 
