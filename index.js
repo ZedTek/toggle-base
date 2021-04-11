@@ -47,7 +47,6 @@ client.on('message', message => {
         // make a new collection for commands, and import commands from the /commands direcory
 
         client.commands = new Discord.Collection();
-        const extensionCommands = fs.readdirSync('./commands/ext');
         const commandFiles = fs.readdirSync(`./commands/base/`).filter(file => file.endsWith('.js'));
 
         // scan imported commands, and add them to the collection
@@ -59,26 +58,30 @@ client.on('message', message => {
             const command = require(`./commands/base/${file}`);
             client.commands.set(command.name, command);
         }
-        for (const ext of extensionCommands){
+        if (fs.existsSync('./commands/ext')){
+            const extensionCommands = fs.readdirSync('./commands/ext')
+            for (const ext of extensionCommands){
 
-            // look for indidvidual modules, and attempt to import their info files.
+                // look for indidvidual modules, and attempt to import their info files.
 
-            const infoFile = require(`./commands/ext/${ext}/config.json`);
+                const infoFile = require(`./commands/ext/${ext}/config.json`);
 
-            // attempt to find extension commands, and add them to the collection.
+                // attempt to find extension commands, and add them to the collection.
 
-            const command = fs.readdirSync(`./commands/ext/${ext}`).filter(file => file.endsWith('.js'));
-            for (const file of command){
+                const command = fs.readdirSync(`./commands/ext/${ext}`).filter(file => file.endsWith('.js'));
+                for (const file of command){
 
-                // import the command for naming and collecting.
+                    // import the command for naming and collecting.
 
-                const extCommand = require(`./commands/ext/${ext}/${file}`);
+                    const extCommand = require(`./commands/ext/${ext}/${file}`);
 
-                // set the command name as (module name)-(command).
+                    // set the command name as (module name)-(command).
 
-                client.commands.set(`${infoFile.commandPrefix}-${extCommand.name}`, extCommand);
+                    client.commands.set(`${infoFile.commandPrefix}-${extCommand.name}`, extCommand);
+                }
             }
         }
+        
         printCommand(prefix, message);
     }
 });
