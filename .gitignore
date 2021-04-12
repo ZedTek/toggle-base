@@ -1,4 +1,4 @@
 node_modules/
 modules/*
 commands/ext/*
-*.jsonig
+*global.json

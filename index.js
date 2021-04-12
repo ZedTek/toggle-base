@@ -27,7 +27,7 @@ client.on("ready", () =>{
         }
     });
 
-    console.log('Set presence data to: ' + global.info.game.type + ' ' + global.info.game.name)
+    console.log('Set presence data to: ' + global.info.game.type + ' ' + global.info.game.name);
 
     console.log('\n--------\nTOGGLE MODULE LOADER\n--------\n');
 
