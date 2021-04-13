@@ -4,7 +4,7 @@ const downloader = require('../utils/downloader.js');
 module.exports = { loadExt }
 
 function loadExt(){
-    if (fs.existsSync('./modules')){
+    if (fs.existsSync('./modules/')){
         const moduleFiles = fs.readdirSync(`./modules`).filter(file => file.endsWith('.json'));
         for (const module of moduleFiles){
             const mod = require(`../modules/${module}`);
@@ -24,7 +24,7 @@ function loadExt(){
         }
     }
     else {
-        console.log('No modules directory, continuing startup without modules.')
+        console.log('No modules detected, continuing startup without modules.')
         return;
     }
 }
