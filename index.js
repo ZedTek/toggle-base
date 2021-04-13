@@ -79,7 +79,7 @@ client.on('message', message => {
 
                     client.commands.set(`${infoFile.commandPrefix}-${extCommand.name}`, extCommand);
                 }
-            }
+            }  
         }
         
         printCommand(prefix, message);
@@ -90,9 +90,12 @@ client.on('message', message => {
 
 function printCommand(prefix, message){
     const lowerMessage = message.content.toLowerCase();
-    const args = lowerMessage.slice(prefix.length).trim().split(/ +/);
+    const args = lowerMessage.slice(prefix.length).trim().split(" ");
     const commandName = args.shift().toLowerCase();
-    if (!client.commands.has(commandName)) return;
+    if (!client.commands.has(commandName)){
+        message.channel.send('Command not found :/')
+        return;
+    }
     const command = client.commands.get(commandName);
     try {
         command.execute(message, args);
