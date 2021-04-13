@@ -1,6 +1,8 @@
 const fs = require("fs")
 const downloader = require('../utils/downloader.js');
 
+var loadedMods = 0;
+
 module.exports = { loadExt }
 
 function loadExt(){
@@ -21,7 +23,9 @@ function loadExt(){
                 console.log(`Imported config file for "${mod.name}"`);
             }
             console.log(`Imported ${commands.length} command(s) from module "${mod.name}"`);
+            loadedMods = loadedMods + commands.length
         }
+        console.log('\n----\nSuccessfully loaded ' + loadedMods + ' commands, from ' + moduleFiles.length + ' modules in total.\n----')
     }
     else {
         console.log('No modules detected, continuing startup without modules.')
