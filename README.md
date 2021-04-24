@@ -45,6 +45,8 @@ On a fundamental level, it really isn't. Toggle is built on discord.js. The main
 
 ## How can I get started with Toggle?
 
+Before we start, make sure you have the following on your system: `git`, `node`, and `npm`
+
 Getting started with Toggle is actually pretty simple. Just open a terminal to your directory of choice, and then run this line:
 
 ```
