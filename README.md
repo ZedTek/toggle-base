@@ -116,13 +116,9 @@ You can run them at the same time as well!
 
 Just open a second terminal window, and follow the start instructions.
 
+| (c) ZedTek 2021
 
+| No offense to religious people who may or may not be named Janet.
 
-
-
-(c) ZedTek 2021
-
-No offense to religious people who may or may not be named Janet.
-
-We are not affiliated with the Raspberry Pi Foundation, and reference to their hardware was not sponsored in any way.
+| We are not affiliated with the Raspberry Pi Foundation, and reference to their hardware was not sponsored in any way.
 
